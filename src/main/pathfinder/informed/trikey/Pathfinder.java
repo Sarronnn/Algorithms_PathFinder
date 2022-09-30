@@ -160,9 +160,7 @@ public class Pathfinder {
     			}
     		}		
     	}
-    	return minimumDist;
-    		
+    	return minimumDist;	
     }
-   
 }
 
