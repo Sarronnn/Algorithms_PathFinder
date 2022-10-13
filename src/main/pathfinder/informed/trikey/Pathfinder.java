@@ -17,7 +17,7 @@ public class Pathfinder {
      * @return A List of Strings representing actions that solve the problem of the
      *         format: ["R", "R", "L", ...]
      */
-    
+    // >> [KT] Helper methods should be private (-0.25)
 	public static ArrayList<String> buildPath(SearchTreeNode current) {
 		ArrayList<String> solution = new ArrayList<String>();
 		while(current.parent != null) {
@@ -25,6 +25,7 @@ public class Pathfinder {
 			current = current.parent;
 		}
 		Collections.reverse(solution);
+		// >> [KT] Remove print statements before submission (-0.25)
 		System.out.println(solution);
 		return solution;
 	}
@@ -111,6 +112,8 @@ public class Pathfinder {
 		 */
 		public int compareTo(SearchTreeNode o) {
 			// TODO Auto-generated method stub
+			// >> [KT] Don't leave in extraneous comments, especially not TODOs as it makes 
+			// the submission look unfinished (-0.25)
 			int compareCost = (this.estimateCost + this.pathCost) - (o.estimateCost + o.pathCost);
 			return compareCost;
 		}
@@ -129,7 +132,7 @@ public class Pathfinder {
 		    }
 		 
 		 @Override
-		 
+		 // >> [KT] Beware of extraneous newlines 
 		 public int hashCode () {
 			return Objects.hash(this.state, this.keysCollected);
 			 
@@ -137,7 +140,7 @@ public class Pathfinder {
     }
     
 
-	
+	// >> [KT] The below method should be private and needs a Javadoc (-0.25)
     public static int getManhatan(MazeState start, MazeState finish) {
     	return Math.abs((start.col() - finish.col())) + Math.abs((start.row() - finish.row()));
     }
@@ -163,4 +166,30 @@ public class Pathfinder {
     	return minimumDist;	
     }
 }
+
+// ===================================================
+// >>> [KT] Summary
+// A great submission that shows strong command of
+// programming fundamentals, generally good style,
+// and a good grasp on the problem and supporting
+// theory of A*. Indeed, there is definitely
+// a lot to like in what you have above, but
+// I think you could have tested it a little more just
+// to round out the several edge cases that evaded your
+// detection. Give yourself more time to test + debug
+// future submissions and you'll be golden!
+// ---------------------------------------------------
+// >>> [KT] Style Checklist
+// [X] = Good, [~] = Mixed bag, [ ] = Needs improvement
+//
+// [X] Variables and helper methods named and used well
+// [X] Proper and consistent indentation and spacing
+// [~] Proper JavaDocs provided for ALL methods
+// [X] Logic is adequately simplified
+// [X] Code repetition is kept to a minimum
+// ---------------------------------------------------
+// Correctness:         94 / 100 (-1.5 / missed unit test)
+// Style Penalty:       -1
+// Total:               93 / 100
+// ===================================================
 
